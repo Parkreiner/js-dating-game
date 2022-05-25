@@ -1,3 +1,14 @@
+/** Base Styling */
+:root {
+  --color-bg: #fff8f5;
+  --color-body-text: #2d3352;
+
+  /** Not sure what I'm going to do with these yet */
+  --color-junk-1: #ffe6e6;
+  --color-junk-2: #c3e6de;
+  --color-junk-3: #c5bfe0;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -11,6 +22,7 @@ html {
 }
 
 body {
-  background-color: "#FFF8F5";
+  background-color: var(--color-bg);
+  color: var(--color-body-text);
   font-family: "M PLUS Rounded 1c", "helvetiva neue", "helvetica", "arial", sans-serif;
 }
