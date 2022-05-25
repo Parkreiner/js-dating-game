@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "The JavaScript Dating Game!",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "node server/index.js",
+    "dev": "concurrently \"tsc --watch\" \"nodemon -q ./dist/server/index.js\"",
     "build": "parcel src/index.html && parcel watch src/index.html"
   },
   "repository": {
@@ -30,6 +31,7 @@
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
+    "concurrently": "^7.2.1",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^2.7.1",
@@ -37,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "nodemon": "^2.0.16",
     "parcel": "^2.5.0",
     "typescript": "^4.7.2"
   },

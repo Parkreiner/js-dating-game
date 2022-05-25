@@ -1,14 +1,17 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "target": "ES2021",
+    "target": "ES2016",
     "rootDir": "./src",
-    "outDir": "./public",
+    "outDir": "./dist",
     "jsx": "preserve",
+
+    "module": "CommonJS",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+
     "declaration": true,
     "removeComments": true,
-
     "strict": true,
     "noImplicitAny": true,
     "noUncheckedIndexedAccess": true,
