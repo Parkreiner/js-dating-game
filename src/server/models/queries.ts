@@ -33,13 +33,17 @@ CREATE TABLE IF NOT EXISTS round_details (
 /**
  * Inserts into the contestants table. Both img_url and tech_bio_url can be null.
  */
-const INSERT_CONTESTANTS = `\
+const UPSERT_CONTESTANTS = `\
 INSERT INTO contestants (name, dating_bio, img_url, tech_bio_url)
-VALUES ($1, $2, $3, $4);`;
+VALUES ($1, $2, $3, $4)
+ON CONFLICT (name) DO UPDATE SET
+  dating_bio = excluded.dating_bio,
+  img_url = excluded.img_url,
+  tech_bio_url = excluded.tech_bio_url;`;
 
 /**
  * Selects literally all data from the contestants table.
  */
 const SELECT_CONTESTANTS = `SELECT * FROM contestants;`;
 
-export { CREATE_TABLES, INSERT_CONTESTANTS, SELECT_CONTESTANTS };
+export { CREATE_TABLES, UPSERT_CONTESTANTS, SELECT_CONTESTANTS };
