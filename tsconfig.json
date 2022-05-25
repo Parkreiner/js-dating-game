@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "ES2021",
+    "rootDir": "./src",
+    "outDir": "./public",
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "declaration": true,
+    "removeComments": true,
+
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "allowUnreachableCode": false
+  }
+}

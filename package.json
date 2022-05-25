@@ -1,0 +1,46 @@
+{
+  "name": "js-dating-game",
+  "version": "1.0.0",
+  "description": "The JavaScript Dating Game!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server/index.js",
+    "build": "parcel src/index.html && parcel watch src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parkreiner/js-dating-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Parkreiner/js-dating-game/issues"
+  },
+  "homepage": "https://github.com/Parkreiner/js-dating-game#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.35",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "parcel": "^2.5.0",
+    "typescript": "^4.7.2"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
