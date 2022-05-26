@@ -6,11 +6,11 @@
 
   --color-question-bg: #f7cab5;
   --color-question-text: #3d1609;
-  --color-question-subtext: #dba993;
+  --color-question-subtext: #4d2213;
 
   /** For use with primary components and buttons, etc. */
   --color-compo-bg: #bdd9de;
-  --color-compo-bg-hover: #c1dde0;
+  --color-compo-bg-hover: #cae3e6;
   --color-compo-subtext: #91b3bf;
   --color-compo-text: #22455c;
 
@@ -56,9 +56,9 @@ button {
 .game-container {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-flow: column nowrap;
+  padding: 16px;
   justify-content: center;
 }
 
@@ -106,4 +106,85 @@ button {
 
 .titlecard button:hover {
   background-color: var(--color-compo-bg-hover);
+}
+
+/** Prompter */
+.prompter {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.prompter-img {
+  max-width: 10em;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+/** Prompter Box */
+.prompter-box {
+  width: 100%;
+  border-radius: 20px;
+  padding: 1.4rem 1.5rem;
+}
+
+.prompter-box h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.prompter-box p {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 720px) {
+  .prompter-box p {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+/** Questions Box */
+.questions-box {
+  background-color: var(--color-question-bg);
+  color: var(--color-question-text);
+  max-width: 50em;
+  margin: 0 auto;
+}
+
+.questions-box h2 {
+  color: var(--color-question-subtext);
+}
+
+/** Contestant Box and Contestants Container */
+
+.contestants-container {
+  margin-top: 1rem;
+}
+
+.contestant-box {
+  background-color: var(--color-compo-bg);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.contestant-box p {
+  font-size: 1.2rem;
+}
+
+.contestant-box:hover {
+  background-color: var(--color-compo-bg-hover);
+}
+
+@media screen and (min-width: 720px) {
+  .contestants-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .contestant-box {
+    flex-basis: 400px;
+  }
 }

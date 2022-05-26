@@ -21,12 +21,14 @@ type Contestant = {
 
 type GameState = {
   questions: string[];
+  currentQuestion: number;
   contestants: Contestant[];
 };
 
 function resetGameState(state: GameState): GameState {
-  const newGameState = {
+  const newGameState: GameState = {
     questions: [...state.questions],
+    currentQuestion: 0,
     contestants: state.contestants.map(resetContestant),
   };
 

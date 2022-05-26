@@ -5,7 +5,7 @@ const questions = [
   "If you were deserted on a remote island, but could bring just one thing, what would you choose?",
   "What are you looking for in a partner?",
   "Do you speak any other languages?",
-  "If you could be any animal, what would you be and why?",
+  "If you could be any animal, what would you be, and why?",
 ];
 
 const eventLoop: Contestant = {
@@ -42,7 +42,7 @@ const generatorFunctions: Contestant = {
 
   state: {
     answers: [
-      "I'd be spending that time contemplating infinity. Hear me out: an afternoon is just an infinite sequence of infinitely small intervals of time.",
+      "I'd be spending that time contemplating infinity. You never get bored if it never ends, you know?",
       'One thing, you say...What is "one"? What is a "thing"? We are all just electrons buzzing in the air; we are all connected.',
       "I'm hoping it yields something I can keep coming back to again and again.",
       "It is the case that I speak at least one language.",
@@ -67,7 +67,7 @@ const arrayReduce: Contestant = {
     answers: [
       "I dunno? Just hanging around the house, browsing random websites?",
       "Can I cheat? If I put a bunch of stuff in a backpack, does that count?",
-      "I'm looking for my soulmate. Someone who completes me. I want to be with them, heart, body, and soul.",
+      "I'm looking for my soulmate. Someone who completes me. I want to share everything with them: heart, body, and soul.",
       "Does math count? I'm pretty good at math.",
       "As gross as it sounds, a dung beetle. I just like how they start snowballing stuff into one giant thing.",
     ],
@@ -87,10 +87,10 @@ const implicitTypeCoercion: Contestant = {
 
   state: {
     answers: [
-      "Eating my boogers. I can share next time if you want.",
+      "Browsing Reddit while my mom cleans my room.",
       "Either my comic book collection, or my mom, so she can make me dino tendies.",
       `Anyone who won't make fun of me for saying that 2 + "2" is "22".`,
-      `I've taught myself Japanese from watching anime. My favorite word is "onii-chan".`,
+      `I've taught myself Japanese from watching anime. My favorite word is "onii-chan". You can call me that if you like.`,
       "I wish I could be a pony, so I could be friends with Twilight Sparkle.",
     ],
 
@@ -125,6 +125,7 @@ const regexes: Contestant = {
 
 const mockData: GameState = {
   questions,
+  currentQuestion: 0,
   contestants: [eventLoop, generatorFunctions, arrayReduce, implicitTypeCoercion, regexes],
 };
 
