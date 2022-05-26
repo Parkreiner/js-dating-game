@@ -59,10 +59,16 @@ button {
   display: flex;
   flex-flow: column nowrap;
   padding: 16px;
-  justify-content: center;
 }
 
 /** Titlecard */
+.titlecard-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+}
+
 .titlecard {
   max-width: 35em;
   margin: 0 auto;
@@ -110,7 +116,7 @@ button {
 
 /** Prompter */
 .prompter {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -137,6 +143,17 @@ button {
 }
 
 @media screen and (min-width: 720px) {
+  .prompter-container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  .prompter-spacer {
+    flex-basis: 12%;
+  }
+
   .prompter-box p {
     font-size: 1.4rem;
     font-weight: 500;
@@ -180,11 +197,16 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    gap: 16px;
   }
 
   .contestant-box {
-    flex-basis: 400px;
+    flex-basis: calc((100% - 20px) / 2);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .contestants-container {
+    flex-wrap: nowrap;
   }
 }

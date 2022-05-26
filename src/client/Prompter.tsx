@@ -30,20 +30,26 @@ const Prompter: FunctionComponent = () => {
   }
 
   const { questions, contestants, currentQuestion } = deferred.value;
-  const currentQuestionText = questions[currentQuestion] ?? "";
+  const currentQuestionText = questions[currentQuestion] ?? "Whoops. That's an error.";
 
   return (
-    <div className="prompter">
-      <div className="img-container prompter-img">
-        <img src="https://i.imgur.com/jlxI41Q.png" alt="JS Dating Game logo" />
+    <div className="prompter-container">
+      <div className="prompter">
+        <div className="img-container prompter-img">
+          <img src="https://i.imgur.com/jlxI41Q.png" alt="JS Dating Game logo" />
+        </div>
+
+        <QuestionBox question={currentQuestionText} questionNumber={currentQuestion + 1} />
+
+        <div className="contestants-container">{contestants.map(toContestantsBox)}</div>
       </div>
-      <QuestionBox question={currentQuestionText} questionNumber={currentQuestion + 1} />
-      <div className="contestants-container">{contestants.map(toContestantsBox)}</div>
+      <div className="prompter-spacer"></div>
     </div>
   );
 
   ////////// Start of internal helpers
 
+  // Relies on closure
   function toContestantsBox(con: Contestant) {
     const answer = con.state.answers[currentQuestion];
     if (answer == null) throw new TypeError("Went out of bounds.");
