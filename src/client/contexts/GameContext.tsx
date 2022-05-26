@@ -4,8 +4,7 @@ type GameStatus = {
   gameOver: boolean;
 };
 
-type GameStatusState = [GameStatus, Function];
-
+type GameStatusState = [GameStatus, React.Dispatch<React.SetStateAction<GameStatus>>];
 const GameContext = createContext<GameStatusState>([{ gameOver: true }, () => {}]);
 
 export { GameContext, GameStatus, GameStatusState };

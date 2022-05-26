@@ -8,7 +8,7 @@
     "dev": "concurrently \"tsc --watch\" \"nodemon -q ./dist/server/index.js\"",
     "contestants": "node ./dist/scripts/upload-contestants.js",
     "rounds": "node ./dist/scripts/upload-rounds.js",
-    "build": "parcel src/index.html && parcel watch src/index.html"
+    "build": "parcel public/index.html && parcel watch public/index.html"
   },
   "repository": {
     "type": "git",

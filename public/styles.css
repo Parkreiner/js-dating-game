@@ -1,12 +1,23 @@
 /** Base Styling */
 :root {
-  --color-bg: #fff8f5;
-  --color-body-text: #2d3352;
+  --color-bg-1: #fff3ed;
+  --color-bg-2: #f2e3dc;
+  --color-text-primary: #32374c;
 
-  /** Not sure what I'm going to do with these yet */
-  --color-junk-1: #ffe6e6;
-  --color-junk-2: #c3e6de;
-  --color-junk-3: #c5bfe0;
+  --color-question-bg: #f7cab5;
+  --color-question-text: #3d1609;
+  --color-question-subtext: #dba993;
+
+  /** For use with primary components and buttons, etc. */
+  --color-compo-bg: #bdd9de;
+  --color-compo-bg-hover: #c1dde0;
+  --color-compo-subtext: #91b3bf;
+  --color-compo-text: #22455c;
+
+  /** For little background flourishes */
+  --color-accessory-1: #ffe6e6;
+  --color-accessory-2: #d1ede7;
+  --color-accessory-3: #dbd8eb;
 }
 
 html {
@@ -22,7 +33,77 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-body-text);
-  font-family: "M PLUS Rounded 1c", "helvetiva neue", "helvetica", "arial", sans-serif;
+  background-color: var(--color-bg-1);
+  color: var(--color-text-primary);
+  font-family: "M PLUS Rounded 1c", serif, "helvetiva neue", "helvetica", "arial", sans-serif;
+}
+
+button {
+  /** I have no idea why buttons don't inherit font families by default */
+  font-family: inherit;
+}
+
+/** Utility classes */
+.img-container {
+  width: 100%;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+/** Game container */
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+/** Titlecard */
+.titlecard {
+  max-width: 35em;
+  margin: 0 auto;
+}
+
+.titlecard h1 {
+  display: none;
+}
+
+.titlecard p {
+  max-width: 80%;
+  margin: 2rem auto 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4em;
+}
+
+.titlecard img {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.titlecard button {
+  display: block;
+  margin: 2.5rem auto 0;
+  padding: 0.6rem 1.6rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--color-compo-bg);
+  color: var(--color-text-primary);
+  transition: background-color 0.2s ease;
+
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 900;
+}
+
+.titlecard button:hover {
+  background-color: var(--color-compo-bg-hover);
 }
