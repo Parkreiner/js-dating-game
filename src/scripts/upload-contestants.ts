@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { query } from "../server/models/DatingGameModel";
-import { UPSERT_CONTESTANTS } from "../server/models/queries";
+import queryText from "../server/models/queries";
 
 type ContestantHeader = "name" | "datingBio" | "imgUrl" | "techBioUrl";
 
@@ -99,7 +99,7 @@ async function processContestants(path: string): Promise<void> {
 
     const headersMap = mapWithIndices(headers);
     const contestants = contestantRows.map((row) => toContestant(headersMap, row));
-    writeContestants(query, UPSERT_CONTESTANTS, contestants);
+    writeContestants(query, queryText.upsert.contestants, contestants);
   } catch (err: unknown) {
     console.error(err instanceof Error ? err.stack : err);
   }
