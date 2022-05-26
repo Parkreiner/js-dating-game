@@ -1,4 +1,5 @@
 import express, { json, Request, Response } from "express";
+import GameController from "./controllers/GameController";
 
 // Config constants
 const PORT_NUMBER = 3000;
@@ -12,8 +13,9 @@ const ERROR_TEMPLATE = {
 // App setup
 const app = express();
 app.use(json());
+app.use("/game", GameController);
 
-// Generic route handler - Always respond with HTTP 400
+// Generic route handler - Always respond with HTTP 400 externally
 app.use((req, res) => {
   res.status(ERROR_TEMPLATE.externalStatus).json(ERROR_TEMPLATE.message);
 });

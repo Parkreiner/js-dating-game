@@ -14,8 +14,15 @@ type RoundDetailsEntry = {
   answers: Answer[];
 };
 
+/**
+ * This is really, really obnoxiously awful code. In an ideal world, I would have the time to do
+ * multiple nested queries comprised of mixes of SELECT/INSERT operations, while also taking care of
+ * data sanitization. I didn't have that time, so I did this really weird brute-force approach.
+ */
 async function writeRoundDetails(details: RoundDetailsEntry[]): Promise<void> {
-  for (const { question, answers } of details) {
+  for (const detail of details) {
+    const { question, answers } = detail;
+
     // Handle questions
     await query(queryText.insert.questions, [question]);
     const questionResults = await query(queryText.select.questions, [question]);
