@@ -5,31 +5,24 @@ import { GameContext } from "./contexts/GameContext";
 
 import { mockData } from "./data/mockData";
 import { resetGameState, GameState, Contestant } from "./gameState";
+import { reduceGameState } from "./reducers/gameStateReducer";
 
-type Deferred<T> = { loaded: true; value: T } | { loaded: false };
+type Loadable<T> = { loaded: true; value: T } | { loaded: false; value: null };
 
 const Prompter: FunctionComponent = () => {
-  const [deferred, setDeferred] = useState<Deferred<GameState>>({ loaded: false });
   const [{ gameOver }] = useContext(GameContext);
+  const [gameState, dispatch] = useReducer(reduceGameState, mockData);
 
   useEffect(() => {
     // If I had more time, I would populate this with data from a real API call
-    setDeferred({ loaded: true, value: resetGameState(mockData) });
+    dispatch({ type: "RESET" });
   }, []);
 
   if (gameOver) {
     return null;
   }
 
-  if (!deferred.loaded) {
-    return (
-      <div>
-        <p>Loading data. One moment, please...</p>
-      </div>
-    );
-  }
-
-  const { questions, contestants, currentQuestion } = deferred.value;
+  const { questions, contestants, currentQuestion } = gameState;
   const currentQuestionText = questions[currentQuestion] ?? "Whoops. That's an error.";
 
   return (
@@ -50,11 +43,23 @@ const Prompter: FunctionComponent = () => {
   ////////// Start of internal helpers
 
   // Relies on closure
-  function toContestantsBox(con: Contestant) {
+  function toContestantsBox(con: Contestant, arrayIndex: number) {
     const answer = con.state.answers[currentQuestion];
     if (answer == null) throw new TypeError("Went out of bounds.");
 
-    return <ContestantsBox key={con.api.id} answer={answer} contestantNum={con.state.index} />;
+    const voteDispatch = () => {
+      dispatch({ type: "VOTE", payload: { contestantIndex: con.state.index - 1 } });
+    };
+
+    return (
+      <ContestantsBox
+        tabIndex={arrayIndex}
+        key={con.api.id}
+        answer={answer}
+        contestantNum={con.state.index}
+        vote={voteDispatch}
+      />
+    );
   }
 };
 
